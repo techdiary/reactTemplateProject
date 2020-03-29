@@ -13,6 +13,7 @@
     * [DSA](blogs-i-want-to-read/technical/dsa.md)
     * [Functional JS](blogs-i-want-to-read/technical/functional-js.md)
 * [Basic Learning](learn-about-stuff/README.md)
+  * [Parallelism is not concurency!](learn-about-stuff/parallelism-is-not-concurency.md)
   * [Notes on Subject](learn-about-stuff/notes-on-subject.md)
 * [React Learning](things-to-learn/README.md)
   * [React Fiber](things-to-learn/react-fiber.md)

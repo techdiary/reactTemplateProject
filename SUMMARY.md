@@ -44,6 +44,7 @@
 
 ## JavaScript
 
+* [JavaScript module formats](javascript/javascript-module-formats.md)
 * [W3C Standards](javascript/w3c-standards/README.md)
   * [DOM](javascript/w3c-standards/dom/README.md)
     * [Events](javascript/w3c-standards/dom/events.md)

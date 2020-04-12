@@ -161,3 +161,90 @@ import("./esCounterModule.js").then(dynamicESCounterModule => {
 });
 ```
 
+### System module: SystemJS module
+
+SystemJS is a library that can enable ES6 module syntax for older ES5. For example, the following module is defined in ES6 syntax:
+
+### Webpack module: bundle from CJS, AMD, ES modules
+
+Webpack is a bundler for modules. It uses transpile combined CommonJS module, AMD module, and ES module into a harmony module pattern, and bundle all code into one single file.
+
+```text
+// Use ES module: index.js
+import counterModule from "./esCounterModule";
+counterModule.increase();
+counterModule.reset();
+```
+
+
+
+Webpack can bundle all the above file, even they are in 3 different module systems, into a single file `main.js`:
+
+* `root`
+  * `dist`
+    * `main.js (Bundle of all files under src)`
+  * `src`
+    * `amdDependencyModule1.js`
+    * `commonJSDependencyModule2.js`
+    * `esCounterModule.js`
+    * `index.js`
+
+### Babel module: transpile from ES module
+
+Babel is another transpiler to convert ES6+ JavaScript code to the older syntax for the older environment like older browsers.
+
+Babel can work with SystemJS to transpile CommonJS/Node.js module, AMD/RequireJS module, and ES module
+
+### TypeScript module: Transpile to CJS, AMD, ES, System modules
+
+TypeScript supports ES module syntax [https://www.typescriptlang.org/docs/handbook/modules.html](https://www.typescriptlang.org/docs/handbook/modules.html), which can be kept as ES6, or transpiled to other formats, including CommonJS/Node.js, AMD/RequireJS, UMD/UmdJS, or System/SystemJS, according to the specified transpiler option in tsconfig.json:
+
+```text
+{
+    "compilerOptions": {
+        "module": "ES2020", // None, CommonJS, AMD, System, UMD, ES6, ES2015, ES2020, ESNext.
+    }
+}
+```
+
+#### Internal module and namespace
+
+TypeScipt also has a module keyword and a name space keyword, they are called internal modules:
+
+[https://www.typescriptlang.org/docs/handbook/namespaces-and-modules.html\#pitfalls-of-namespaces-and-modules](https://www.typescriptlang.org/docs/handbook/namespaces-and-modules.html#pitfalls-of-namespaces-and-modules)
+
+```text
+module Counter {
+    let count = 0;
+    export const increase = () => ++count;
+    export const reset = () => {
+        count = 0;
+        console.log("Count is reset.");
+    };
+}
+
+namespace Counter {
+    let count = 0;
+    export const increase = () => ++count;
+    export const reset = () => {
+        count = 0;
+        console.log("Count is reset.");
+    };
+}
+
+```
+
+They are both transpiled to JavaScript objects:
+
+```text
+var Counter;
+(function (Counter) {
+    var count = 0;
+    Counter.increase = function () { return ++count; };
+    Counter.reset = function () {
+        count = 0;
+        console.log("Count is reset.");
+    };
+})(Counter || (Counter = {}));
+```
+

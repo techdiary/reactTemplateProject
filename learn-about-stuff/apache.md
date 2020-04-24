@@ -26,8 +26,24 @@ ServerName www.example.com
   
 {% endtab %}
 
-{% tab title="Second Tab" %}
+{% tab title="DirectoryMatch" %}
+`<DirectoryMatch>` and `</DirectoryMatch>` are used to enclose a group of directives which will apply only to the named directory \(and the files within\), the same as [`<Directory>`](http://httpd.apache.org/docs/current/mod/core.html#directory). 
 
+```text
+<DirectoryMatch "^/www/(.+/)?[0-9]{3}/">
+    # ...
+</DirectoryMatch>
+```
+
+matches directories in `/www/` \(or any subdirectory thereof\) that consist of three numbers.
+{% endtab %}
+
+{% tab title="Directory" %}
+`<Directory>` and `</Directory>` are used to enclose a group of directives that will apply only to the named directory, sub-directories of that directory, and the files within the respective directories. Any directive that is allowed in a directory context may be used.
+{% endtab %}
+
+{% tab title="DocummentRoot" %}
+This directive sets the directory from which [`httpd`](http://httpd.apache.org/docs/current/programs/httpd.html) will serve files
 {% endtab %}
 {% endtabs %}
 

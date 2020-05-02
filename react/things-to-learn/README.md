@@ -7,7 +7,7 @@
 * \*\*\*\*[**Why do we need middleware for async flow in Redux?**](top-explanations/why-async-flow-in-redux.md)\*\*\*\*
 *  ****
 
-{% file src="../.gitbook/assets/react-bits.pdf" caption="React bits" %}
+{% file src="../../.gitbook/assets/react-bits.pdf" caption="React bits" %}
 
 {% page-ref page="reconcilation.md" %}
 
